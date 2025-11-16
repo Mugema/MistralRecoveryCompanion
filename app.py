@@ -1,6 +1,7 @@
 import gradio as gr
 import torch
 import KG
+import os
 from huggingface_hub import InferenceClient
 from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
 from sentence_transformers import SentenceTransformer
