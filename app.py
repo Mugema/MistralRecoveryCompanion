@@ -101,4 +101,4 @@ with gr.Blocks() as demo:
 port = int(os.environ.get("PORT", 7860))
 
 if __name__ == "__main__":
-    demo.launch(server.port ="10000",server.address=" 0.0.0.0")
+    demo.launch()
