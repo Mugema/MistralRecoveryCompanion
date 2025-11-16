@@ -11,3 +11,4 @@ numpy==2.2.3
 sentence-transformers 
 faiss-cpu 
 tqdm
+gradio
