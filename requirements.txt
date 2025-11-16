@@ -1,0 +1,13 @@
+streamlit
+transformers
+peft
+accelerate
+bitsandbytes
+sentencepiece
+torch
+pandas
+networkx
+numpy==2.2.3
+sentence-transformers 
+faiss-cpu 
+tqdm
