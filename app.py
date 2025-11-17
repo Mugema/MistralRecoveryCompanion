@@ -83,6 +83,8 @@ def respond(
     result=pipe(f"<s>[INST] <<SYS>> { system_prompt } <</SYS>> { message } [/INST]")
     print(result[0]['generated_text'])
     response = result[0]['generated_text'].split(separator_tag)[1].strip()
+    
+    return response
 
 """
 For information on how to customize the ChatInterface, peruse the gradio docs: https://www.gradio.app/docs/chatinterface
@@ -93,8 +95,6 @@ chatbot = gr.ChatInterface(
 )
 
 with gr.Blocks() as demo:
-    with gr.Sidebar():
-        gr.LoginButton()
     chatbot.render()
 
 
@@ -102,5 +102,8 @@ if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 8080))
     demo.launch(
         server_name="0.0.0.0",
-        server_port=PORT
+        server_port=PORT,
+        share=False,
+        show_error=True
     )
+
