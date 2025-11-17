@@ -6,3 +6,4 @@ steps:
   args: ['build', '-t', 'gcr.io/MistralRecovery/image2', '.']
 options:
   machineType: 'E2_HIGHCPU_32'
+  
