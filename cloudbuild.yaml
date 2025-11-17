@@ -1,0 +1,8 @@
+steps:
+- name: 'gcr.io/cloud-builders/dockers'
+  args: ['build', '-t', 'gcr.io/MistralRecovery/image1', '.']
+  # operations that take a long time to build
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/MistralRecovery/image2', '.']
+options:
+  machineType: 'E2_HIGHCPU_32'
