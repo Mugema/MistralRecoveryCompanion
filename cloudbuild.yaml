@@ -1,5 +1,5 @@
 steps:
-- name: 'gcr.io/cloud-builders/dockers'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/MistralRecovery/image1', '.']
   # operations that take a long time to build
 - name: 'gcr.io/cloud-builders/docker'
