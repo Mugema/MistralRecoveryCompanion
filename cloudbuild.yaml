@@ -1,10 +1,13 @@
-steps:
+  steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/MistralRecovery/image1', '.']
-  # operations that take a long time to build
+  entrypoint: 'bash'
+  args: ['-c', 'docker pull ${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:latest || exit 0']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/MistralRecovery/image2', '.']
-options:
-  default_logs_bucket_behavior: 'REGIONAL_USER_OWNED_BUCKET'
-  machineType: 'E2_HIGHCPU_32'
+  args: [
+            'build',
+            '-t', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:latest',
+            '--cache-from', '${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:latest'
+            '.'
+        ]
+images: ['${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}:latest']
   
